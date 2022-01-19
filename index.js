@@ -8,6 +8,8 @@ const app = express();
 
 const Posts = require('./Posts.js');
 
+var session = require('express-session');
+
 mongoose.connect('mongodb+srv://root:Saturno1@cluster0.4ymyf.mongodb.net/gabrielnews?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
     console.log('Conectado com sucesso');
 }).catch(function(err){
@@ -18,6 +20,9 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
+
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 6000 }
+  }))
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -128,6 +133,69 @@ app.get('/:slug',(req,res)=>{
        }
     })
     
+})
+
+var usuarios = [
+
+    {
+
+        login: 'gabriel',
+
+        senha:'Saturno1'
+
+    }
+
+]
+
+
+
+app.post('/admin/login',(req,res)=>{
+
+    usuarios.map(function(val){
+
+        if(val.login == req.body.login && val.senha == req.body.senha){
+
+            req.session.login = "guilherme";
+
+            
+
+        }
+
+    })
+
+
+
+    res.redirect('/admin/login');
+
+    
+
+})
+
+app.post("/admin/cadastro", (req, res)=>{
+    //prox aula inseriremos no mongo
+    console.log(req.body);
+    Posts.create({
+        titulo: req.body.titulo_noticia,
+        imagem: req.body.url_imagem,
+        categoria: "Nenhuma",
+        conteudo: req.body.noticia,
+        slug: req.body.slug,
+        autor: "ADM",
+        views: 0
+    })
+    res.send("Cadastrado com sucesso");
+})
+
+app.get('/admin/deletar/:id', (req,res)=>{
+    res.send('deletada a notícia com id:' + req.params.id);
+})
+
+app.get('/admin/login', (req,res)=>{
+    if(req.session.login == null){
+        res.render('admin-login');
+    }else{
+        res.render('admin-painel');
+    }
 })
 
 

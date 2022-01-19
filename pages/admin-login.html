@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Painel de Login</title>
+    <style>
+        *{
+            background-color: black;
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+        .header-login{
+            width:100%;
+            padding:20px;
+            background-color:#993399;
+            color:white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 200;
+            text-align: center;
+        }
+        .header-login h2{
+            background-color: #993399;
+        }
+        form{
+            padding: 10px;
+            margin:20px 0;
+
+        }
+        form input{
+            margin-bottom:25px;
+            width:100%;
+            height:60px;
+            padding-left:15px;
+            border: 1px solid #993399;
+            color:white;
+        }
+        button {
+            float:center;
+            width:100%;
+            height:50px;
+            background-color: #993399;
+            border: 0;
+            cursor: pointer;
+            color:white;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class = "header-login">
+        <h2>Painel de Login 🤠</h2>
+    </div>
+    <form method="post">
+        <input type="text" name = "login" placeholder="Usuário..." />
+        <input type = "password" name = "senha" placeholder="Digite a senha..."/>
+        <button>Logar!</button> <!--<input type = "submit" name = "acao" value = "Logar!"/>-->
+        <br/>
+    </form>
+</body>
+</html>

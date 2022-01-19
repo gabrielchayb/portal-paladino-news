@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do ADM!</title>
+    <style>
+        *{
+            background-color: white;
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+        .header-painel{
+            width:100%;
+            padding:20px;
+            background-color:#993399;
+            color:white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 200;
+            text-align: center;
+        }
+        .header-painel h2{
+            background-color: #993399;
+        }
+        form{
+            padding: 10px;
+            margin:20px 0;
+
+        }
+        form input{
+            margin-bottom:25px;
+            width:100%;
+            height:60px;
+            padding-left:15px;
+            border: 1px solid #993399;
+        }
+        form textarea{
+            margin-bottom:25px;
+            width:100%;
+            height:120px;
+            padding-left:15px;
+            border: 1px solid #993399;
+        }
+        button {
+            float:center;
+            width:100%;
+            height:60px;
+            font-size: 30px;
+            background-color: #993399;
+            border: 0;
+            cursor: pointer;
+            color:white;
+            font-size:20px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class = "header-painel">
+        <h2>Painel do ADM 👽 - Cadastrar Notícias</h2>
+    </div>
+    <form method = "post" action="/admin/cadastro">
+        <input type = "text" name = "titulo_noticia" placeholder="Título da Notícia..."/>
+        <input type = "text" name = "url_imagem" placeholder="Link da imagem..."/>
+        <input type = "text" name = "slug" placeholder="Slug"/>
+        <textarea name = "noticia" placeholder="Texto da notícia..."></textarea>
+        <button>Subir Notícia!🦆😎</button> <!---<input type = "submit" name = "acao" placeholder = "enviar noticia"/>-->
+    </form>
+    <br/><br/>
+    
+</body>
+</html>
