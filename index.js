@@ -10,6 +10,7 @@ const Posts = require('./Posts.js');
 
 var session = require('express-session');
 
+mongoose.set('strictQuery', true);
 mongoose.connect('mongodb+srv://root:Saturno1@cluster0.4ymyf.mongodb.net/gabrielnews?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
     console.log('Conectado com sucesso');
 }).catch(function(err){
@@ -21,8 +22,15 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 6000 }
-  }))
+app.use(session({
+    name : 'codeil',
+    secret : 'something',
+    resave :false,
+    saveUninitialized: true,
+    cookie : {
+            maxAge:(1000 * 60 * 100)
+    }      
+}));
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -200,6 +208,6 @@ app.get('/admin/login', (req,res)=>{
 
 
 
-app.listen(5000,()=>{
+app.listen(9000,()=>{
     console.log('server rodando!');
 })
