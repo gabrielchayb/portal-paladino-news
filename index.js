@@ -10,8 +10,8 @@ const Posts = require('./Posts.js');
 
 var session = require('express-session');
 
-mongoose.set('strictQuery', true);
-mongoose.connect('mongodb+srv://root:Saturno1@cluster0.4ymyf.mongodb.net/gabrielnews?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
+
+mongoose.connect('coloque o link de conexão com sua database aqui - lembre de colocar a senha e o nome da database',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
     console.log('Conectado com sucesso');
 }).catch(function(err){
     console.log(err.message);
@@ -208,6 +208,6 @@ app.get('/admin/login', (req,res)=>{
 
 
 
-app.listen(9000,()=>{
+app.listen(5000,()=>{
     console.log('server rodando!');
 })
