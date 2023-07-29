@@ -11,7 +11,7 @@ const Posts = require('./Posts.js');
 var session = require('express-session');
 
 
-mongoose.connect('coloque o link de conexão com sua database aqui - lembre de colocar a senha e o nome da database',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
+mongoose.connect('mongodb+srv://bibi:rola@cluster0.gzwgqmr.mongodb.net/?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
     console.log('Conectado com sucesso');
 }).catch(function(err){
     console.log(err.message);

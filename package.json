@@ -1,7 +1,7 @@
 {
-  "name": "portal_noticias_estatico",
+  "name": "ok",
   "version": "1.0.0",
-  "description": "",
+  "description": "Portal Paladino News - *Esperando nome e logo para atualizar projeto*",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,11 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.1",
-    "ejs": "^3.1.8",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.2",
-    "mongoose": "^6.9.2",
+    "mongodb": "^5.7.0",
+    "mongoose": "^6.11.4",
     "nodemon": "^2.0.20"
   }
 }
